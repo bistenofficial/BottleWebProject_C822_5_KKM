@@ -1,0 +1,20 @@
+% rebase('layout.tpl', title=title, year=year)
+
+<h2>{{ title }}.</h2>
+<h3>{{ message }}</h3>
+
+<form class="form" method="post">
+	<label class="form__label">
+		Enter <abbr title="How long request will take in minutes">t1:</abbr><input class="form__input" type="text" name="T1"/>
+	</label>
+	<label class="form__label">
+		Enter <abbr title="How long in hours">t2:</abbr><input class="form__input" type="email" name="T2"/>
+	</label>
+	<label class="form__label">
+		Enter <abbr title="modifier in formula f(t) = a*e^(-at)">a:</abbr><input class="form__input" type="tel" name="A"/>
+	</label>
+	<p><input type="submit" value="Create order"></p>
+</form>
+</label>
+		Enter your order text: <textarea class="form__textarea" name="ORDER_TEXT"></textarea>
+</label>
