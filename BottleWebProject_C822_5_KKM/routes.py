@@ -35,11 +35,11 @@ def about():
     )
 
 @route('/Monte_Karlo')
-@view('Monte_Karlo')
+@view('Monte_Karlo.html')
 def about():
     """Renders the about page."""
     return dict(
-        title='Monte_Karlo',
+        title='xoy',
         message='Your application description page.',
         year=datetime.now().year
     )

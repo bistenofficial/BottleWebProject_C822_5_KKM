@@ -30,6 +30,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.py" />
+    <Compile Include="Monte_Karlo.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="routes.py" />
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +69,7 @@
     <Content Include="views\about.html" />
     <Content Include="views\contact.html" />
     <Content Include="views\index.html" />
+    <Content Include="views\layout.html" />
     <Content Include="views\Monte_Karlo.html" />
     <Content Include="views\layout.tpl" />
   </ItemGroup>
