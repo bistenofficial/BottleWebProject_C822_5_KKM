@@ -1,4 +1,4 @@
-% rebase('layout.tpl', title=title, year=year)
+% rebase('layout.tpl', title=title, year=year, output=output)
 
 <h2>{{ title }}.</h2>
 <h3>{{ message }}</h3>
@@ -15,6 +15,6 @@
 	</label>
 	<p><input type="submit" value="Create order"></p>
 </form>
-</label>
-		Enter your order text: <textarea class="form__textarea" name="ORDER_TEXT"></textarea>
+<label>
+		{{output}}
 </label>

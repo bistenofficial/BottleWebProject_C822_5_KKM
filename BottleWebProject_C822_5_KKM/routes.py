@@ -39,6 +39,7 @@ def about():
 def about():
     """Renders the about page."""
     return dict(
+        output = "",
         title='About',
         message='Your application description page.',
         year=datetime.now().year
