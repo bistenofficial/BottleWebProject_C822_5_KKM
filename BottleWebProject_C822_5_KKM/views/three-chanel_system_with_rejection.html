@@ -1,20 +1,41 @@
-% rebase('layout.tpl', title=title, year=year, output=output)
+﻿% rebase('layout.tpl', title=title, year=year, output=output)
+
+%import API
 
 <h2>{{ title }}.</h2>
 <h3>{{ message }}</h3>
 
 <form class="form" method="post">
 	<label class="form__label">
-		Enter <abbr title="How long request will take in minutes">t1:</abbr><input class="form__input" type="text" name="T1"/>
+		Enter <abbr title="How long request will take in minutes">t1:</abbr><input class="form__input" type="number" name="T1" />
 	</label>
 	<label class="form__label">
-		Enter <abbr title="How long in hours">t2:</abbr><input class="form__input" type="email" name="T2"/>
+		Enter <abbr title="How long in hours">t2:</abbr><input class="form__input" type="number" name="T2" />
 	</label>
 	<label class="form__label">
-		Enter <abbr title="modifier in formula f(t) = a*e^(-at)">a:</abbr><input class="form__input" type="tel" name="A"/>
+		Enter <abbr title="modifier in formula f(t) = a*e^(-at)">a:</abbr><input class="form__input" type="number" name="A" />
 	</label>
 	<p><input type="submit" value="Create order"></p>
 </form>
-<label>
-		{{output}}
-</label>
+	% if output:
+	%	requests = [*output[0]]
+	%	firstChanel = [*output[1]]
+	%	secondChanel = [*output[2]]
+	%	thirdChanel = [*output[3]]
+	%	serviced = [*output[4]]
+		<body>
+			<table border="1">
+				<caption>Таблица размеров обуви</caption>
+				<tr>
+					<th>№</th>
+					<th>timo when come</th>
+					<th>1</th>
+					<th>2</th>
+					<th>3</th>
+					<th>serviced?</th>
+				</tr>
+				%size = len(requests)
+				%for r in range(size):
+				<tr><td>{{r}}</td><td>{{requests[r]}}</td><td>{{firstChanel[r]}}</td><td>{{secondChanel[r]}}</td><td>{{thirdChanel[r]}}</td><td>{{serviced[r]}}</td></tr>
+			</table>
+		</body>
