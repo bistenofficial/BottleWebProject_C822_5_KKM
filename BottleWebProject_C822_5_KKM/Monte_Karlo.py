@@ -1,15 +1,17 @@
 import random
-from bottle import post, request
-import random
+from bottle import post, request,template
+from datetime import datetime
+
+def rand():
+    return round(random.random(),2)
 
 @post("/home", method="post")
 def Monte():  
-    PA = request.forms.get('PA') #Считывание данных
-    PB = request.forms.get('PB')
-    PC = request.forms.get('PC')
-    PD = request.forms.get('PD')
-    PE = request.forms.get('PE')
-    rnd = round(random.random())
+    PA = (float)(request.forms.get('PA')) #Считывание данных
+    PB = (float)(request.forms.get('PB'))
+    PC = (float)(request.forms.get('PC'))
+    PD = (float)(request.forms.get('PD'))
+    PE = (float)(request.forms.get('PE'))
     if not PA: #Проверка на заполненность
         return "Enter P(A)"
     if not PB:
@@ -20,3 +22,43 @@ def Monte():
         return "Enter P(D)"
     if not PE:
         return "Enter P(E)"
+    arr=[]
+    PAA = []
+    PBA = []
+    PCA = []
+    PDA = []
+    PEA = []
+
+    PAA.append(PA)
+    PBA.append(PB)
+    PCA.append(PC)
+    PDA.append(PD)
+    PEA.append(PE)
+
+    A = []
+    B = []
+    C = []
+    D = []
+    E = []
+    tf = []
+
+    for i in range(100):
+        AR = rand()
+        BR = rand()
+        CR = rand()
+        DR = rand()
+        ER = rand()
+
+        A.append(AR)
+        B.append(BR)
+        C.append(CR)
+        D.append(DR)
+        E.append(ER)
+        if(((PA>AR)or(PB>BR)or(PC>CR))and((PD>DR)or(PE>ER))):
+            tf.append("True")
+            arr = (PAA,PBA,PCA,PDA,PEA,A,B,C,D,E,tf)
+        else: 
+            tf.append("False")
+            arr = (PAA,PBA,PCA,PDA,PEA,A,B,C,D,E,tf)
+
+    return template('Monte_Karlo.html', title = "Monte", message = 'Your application description page.',year=datetime.now().year, output=arr)
