@@ -13,8 +13,8 @@ def threeChanelSystemWithRejection():
     requests = []
     while currentrequest <= timeEnd:
         requests.append(currentrequest)
-        nextRequest = round((1 / multiplier) * math.log10(random.randint(1,10)),2)
-        currentrequest = currentrequest + nextRequest
+        nextRequest = (1 / multiplier) * math.log10(random.randint(1,10))
+        currentrequest = round(currentrequest + nextRequest,2)
     timeOnProcessing = int(request.forms.get('T1')) 
     CurrentRequestinTheFirstChannel = 0
     CurrentRequestinTheSecondChannel = 0
@@ -25,24 +25,27 @@ def threeChanelSystemWithRejection():
     serviced = []
     for i in requests:
         if (i >= CurrentRequestinTheFirstChannel):
-            firstChanel.append(i + timeOnProcessing)
+            firstChanel.append((round(i + timeOnProcessing),2))
             CurrentRequestinTheFirstChannel = i + timeOnProcessing
             secondChanel.append(0)
             thirdChanel.append(0)
             serviced.append(1)
         elif (i >= CurrentRequestinTheSecondChannel):
-            secondChanel.append(i + timeOnProcessing)
+            secondChanel.append((round(i + timeOnProcessing),2))
             CurrentRequestinTheSecondChannel = i + timeOnProcessing
             thirdChanel.append(0)
             firstChanel.append(0)
             serviced.append(1)
         elif(i >= CurrentRequestinTheThirdChannel):
-            thirdChanel.append(i + timeOnProcessing)
+            thirdChanel.append((round(i + timeOnProcessing),2))
             CurrentRequestinTheThirdChannel = i + timeOnProcessing
             firstChanel.append(0)
             secondChanel.append(0)
             serviced.append(1)
         else:
+            firstChanel.append(0)
+            secondChanel.append(0)
+            thirdChanel.append(0)
             serviced.append(0)
 
 

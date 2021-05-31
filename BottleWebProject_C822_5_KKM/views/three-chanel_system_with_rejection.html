@@ -1,4 +1,5 @@
-﻿% rebase('layout.tpl', title=title, year=year, output=output)
+﻿
+% rebase('layout.tpl', title=title, year=year, output=output)
 
 %import API
 
@@ -17,25 +18,29 @@
 	</label>
 	<p><input type="submit" value="Create order"></p>
 </form>
+<div class="table">
 	% if output:
 	%	requests = [*output[0]]
 	%	firstChanel = [*output[1]]
 	%	secondChanel = [*output[2]]
 	%	thirdChanel = [*output[3]]
 	%	serviced = [*output[4]]
-		<body>
 			<table border="1">
-				<caption>Таблица размеров обуви</caption>
-				<tr>
-					<th>№</th>
-					<th>timo when come</th>
-					<th>1</th>
-					<th>2</th>
-					<th>3</th>
-					<th>serviced?</th>
-				</tr>
-				%size = len(requests)
-				%for r in range(size):
-				<tr><td>{{r}}</td><td>{{requests[r]}}</td><td>{{firstChanel[r]}}</td><td>{{secondChanel[r]}}</td><td>{{thirdChanel[r]}}</td><td>{{serviced[r]}}</td></tr>
+				<tbody>
+					<tr>
+						<th>№</th>
+						<th>timo when come</th>
+						<th>1</th>
+						<th>2</th>
+						<th>3</th>
+						<th>serviced?</th>
+					</tr>
+					%size = len(requests)
+					%for r in range(size):
+						<tr>
+						<td>{{r}}</td><td>{{requests[r]}}</td><td>{{firstChanel[r]}}</td><td>{{secondChanel[r]}}</td><td>{{thirdChanel[r]}}</td><td>{{serviced[r]}}</td>
+						</tr>
+					%end
+				</tbody>
 			</table>
-		</body>
+	</div>
