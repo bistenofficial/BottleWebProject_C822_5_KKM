@@ -30,6 +30,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.py" />
+    <Compile Include="Check_Monte_Karlo_NEGR.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Monte.py">
       <SubType>Code</SubType>
     </Compile>
