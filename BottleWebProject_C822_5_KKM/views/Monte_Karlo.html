@@ -1,6 +1,6 @@
 ﻿
-% rebase('layout.html', title='Home Page', year='2021', output=output)
-
+% rebase('layout.html', title='Home Page', year='2021', output=output, tre = tre)
+%import math
     <form action="/home" method="post">
         <p><input rows="1" cols="20" name="PA" placeholder="P(A)="></p>
         <p><input rows="1" cols="20" name="PB" placeholder="P(B)="></p>
@@ -23,6 +23,10 @@
         % DR = [*output[8]]
         % ER = [*output[9]]
         % TF = [*output[10]]
+
+        <h4>Надежность системы Р* - {{tre/100}}</h4>
+        <h4>Надежность системы аналитически Р - {{round(nad,5)}}</h4>
+        <h4>Абсолютная погрешность - {{round(abs(tre/100-nad),5)}}</h4>
         <table border="1">
             <tbody>
                 <tr>

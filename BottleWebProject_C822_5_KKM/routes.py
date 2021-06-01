@@ -37,10 +37,12 @@ def about():
 
 @route('/Monte_Karlo')
 @view('Monte_Karlo.html')
-def about(output=[]):
+def about(output=[],tre = 0,nad = 0):
     """Renders the about page."""
     return dict(
         output = output,
+        tre = tre,
+        nad = nad,
         title='Monte',
         message='Your application description page.',
         year=datetime.now().year
