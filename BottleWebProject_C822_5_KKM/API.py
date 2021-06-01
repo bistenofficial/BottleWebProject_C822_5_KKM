@@ -3,6 +3,8 @@ import math
 import random
 from datetime import datetime
 
+
+
 @post('/three-chanel_system_with_rejection', method='post')
 def threeChanelSystemWithRejection():
     timeEnd = float(request.forms.get('T2'))
@@ -55,5 +57,23 @@ def threeChanelSystemWithRejection():
     secondChanel.append(' ')
     thirdChanel.append(' ')
     arr = [requests, firstChanel, secondChanel, thirdChanel,serviced]
-
+    Result(requests,firstChanel,secondChanel,thirdChanel,timeOnProcessing, timeEnd, multiplier)
     return template('three-chanel_system_with_rejection.html',output = arr, title='About', message='Your application description page.', year=datetime.now().year)
+
+
+def Result(req,FirstFlow,SecondFlow,ThirdFlow, t1,t2,a):
+    now = datetime.now()
+    date_time = now.strftime("%m/%d/%Y, %H:%M:%S")
+    f = open(r'C:\Users\kseno\source\repos\bistenofficial\BottleWebProject_C822_5_KKM\BottleWebProject_C822_5_KKM\Hystory.txt','a')
+    f.write('\n' + 'Date and time:' + date_time + '\n')
+    f.write('Enterd values:' + '\n')
+    f.write('T1:' + str(t1) + '\n')
+    f.write('T2:' + str(t2) + '\n')
+    f.write('a:' + str(a) + '\n')
+    z = 0
+    f.write('Result of program:' + '\n')
+    f.write('Request and time when done:' + '\n')
+    while z < len(req):
+        f.write(str(req[z])+"   "+str(FirstFlow[z])+" "+str(SecondFlow[z])+" "+str(ThirdFlow[z]) + '\n')
+        z += 1
+    f.close()
