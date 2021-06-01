@@ -1,46 +1,65 @@
 ﻿
-% rebase('layout.tpl', title=title, year=year, output=output)
+% rebase('layout.html', title=title, year=year, output=output)
 
-%import API
+% import API
 
 <h2>{{ title }}.</h2>
 <h3>{{ message }}</h3>
 
 <form class="form" method="post">
-	<label class="form__label">
-		Enter <abbr title="How long request will take in minutes">t1:</abbr><input class="form__input" type="number" name="T1" />
-	</label>
-	<label class="form__label">
-		Enter <abbr title="How long in hours">t2:</abbr><input class="form__input" type="number" name="T2" />
-	</label>
-	<label class="form__label">
-		Enter <abbr title="modifier in formula f(t) = a*e^(-at)">a:</abbr><input class="form__input" type="number" name="A" />
-	</label>
-	<p><input type="submit" value="Create order"></p>
+	<ul>
+		<li class="form__line">
+
+			<label class="form__label">
+				Enter <abbr title="How long request will take in minutes">t1:</abbr>
+			</label>
+			<input class="form__input" type="number" name="T1" />
+		</li>
+		<li class="form__line">
+			<label class="form__label">
+				Enter <abbr title="How long in hours">t2:</abbr>
+			</label>
+			<input class="form__input" type="number" name="T2" />
+		</li>
+		<li class="form__line">
+			<label class="form__label">
+				Enter <abbr title="modifier in formula f(t) = a*e^(-at)">a :</abbr>
+			</label>
+			<input class="form__input" type="number" name="A" />
+		</li>
+		<li class="form__line">
+			<p><input type="submit" value="Create order"></p>
+		<li>
+	</ul>
 </form>
 <div class="table">
-	% if output:
-	%	requests = [*output[0]]
-	%	firstChanel = [*output[1]]
-	%	secondChanel = [*output[2]]
-	%	thirdChanel = [*output[3]]
-	%	serviced = [*output[4]]
-			<table border="1">
-				<tbody>
-					<tr>
-						<th>№</th>
-						<th>timo when come</th>
-						<th>1</th>
-						<th>2</th>
-						<th>3</th>
-						<th>serviced?</th>
-					</tr>
-					%size = len(requests)
-					%for r in range(size):
-						<tr>
-						<td>{{r}}</td><td>{{requests[r]}}</td><td>{{firstChanel[r]}}</td><td>{{secondChanel[r]}}</td><td>{{thirdChanel[r]}}</td><td>{{serviced[r]}}</td>
-						</tr>
-					%end
-				</tbody>
-			</table>
-	</div>
+		% if output:
+		%	requests = [*output[0]]
+		%	firstChanel = [*output[1]]
+		%	secondChanel = [*output[2]]
+		%	thirdChanel = [*output[3]]
+		%	serviced = [*output[4]]
+	<table width="1000" bgcolor="#c0c0c0" cellspacing="0" cellpadding="5" border="1" align="center">
+			<tbody>
+				<tr>
+					<th>№</th>
+					<th>time when come</th>
+					<th>1</th>
+					<th>2</th>
+					<th>3</th>
+					<th>serviced?</th>
+				</tr>
+				%size = len(requests)
+				%for r in range(size):
+				<tr>
+					<td>{{r}}</td>
+					<td>{{requests[r]}}</td>
+					<td>{{firstChanel[r]}}</td>
+					<td>{{secondChanel[r]}}</td>
+					<td>{{thirdChanel[r]}}</td>
+					<td>{{serviced[r]}}</td>
+				</tr>
+				%end
+			</tbody>
+	</table>
+</div>
