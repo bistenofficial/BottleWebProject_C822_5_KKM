@@ -1,18 +1,52 @@
-% rebase('layout.tpl', title=title, year=year)
 
-    <meta charset="utf-8">
-    <style>
-        body {
-            background: #000000;
-            color: #FFFFFF;
-        }
-    </style>
-        <h2>Four-channel queuing system with limited queue</h2>
-        <h3></h3>
-        <form action="/home" method="post">
-            <!--  -->
-            <p><input type="text" size="50" name="DSR" placeholder="Duration of service of the request"></p>
-            <p><input type="text" size="50" name="WH" placeholder="Working minutes"></p>
-            <p><input type="text" size="50" name="Alpha" placeholder="Alpha"></p>
-            <p><input type="submit" value="Entry" class="btn btn-default" .></p>
-        </form>
+% rebase('layout.html', title='Home Page', year='2021', output=output)
+
+<meta charset="utf-8">
+<style>
+    body {
+        background: #000000;
+        color: #FFFFFF;
+    }
+</style>
+<h2>Four-channel queuing system with limited queue</h2>
+<h3></h3>
+<form method="post">
+    <!--  -->
+    <p><input type="text" size="50" name="DSR" placeholder="Duration of service of the request"></p>
+    <p><input type="text" size="50" name="WH" placeholder="Working minutes"></p>
+    <p><input type="text" size="50" name="Alpha" placeholder="Alpha"></p>
+    <p><input type="submit" value="Entry" class="btn btn-default"></p>
+</form>
+
+
+<div class="table">
+    % if output:
+    % req = [*output[0]]
+    % FirstFlow = [*output[1]]
+    % SecondFlow = [*output[2]]
+    % ThirdFlow = [*output[3]]
+    % FourthFlow = [*output[4]]
+    <table border="1">
+        <tbody>
+            <tr>
+                <th>№</th>
+                <th>Request</th>
+                <th>First flow</th>
+                <th>Second flow</th>
+                <th>Third flow</th>
+                <th>Fourth flow</th>
+            </tr>
+            %size = len(req)
+            %for r in range(size):
+            <tr>
+                <td>{{r}}</td>
+                <td>{{req[r]}}</td>
+                <td>{{FirstFlow[r]}}</td>
+                <td>{{SecondFlow[r]}}</td>
+                <td>{{ThirdFlow[r]}}</td>
+                <td>{{FourthFlow[r]}}</td>
+            </tr>
+            %end
+        </tbody>
+    </table>
+</div>

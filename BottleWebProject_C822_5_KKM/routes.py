@@ -37,10 +37,10 @@ def about():
 
 @route('/Monte_Karlo_NEGR')
 @view('Monte_Karlo_NEGR')
-def about():
+def about(output=[]):
     """Renders the about page."""
     return dict(
-        title='Four-channel queuing system with limited queue',
-        message='GG',
+        output = output,
+        title='Monte',
         year=datetime.now().year
     )
