@@ -21,9 +21,15 @@ def prepare_organiz():  #Метод для добавления нового п�
         return "Enter correct Working minutes!"
     if not Check_Monte_Karlo_NEGR.check_string(Alpha):
         return "Enter correct Alpha!"
+    f = open('C:\\Users\\79522\\Desktop\\text.txt','a')
+    f.write('Введенные данные:' + '\n')
+    f.write('Время обработки каждой заявки:' + DSR + '\n')
+    f.write('Время принятия заявок:' + WH + '\n')
+    f.write('Альфа:' + Alpha + '\n')
     Resurs()
 
 def Resurs():
+    x = 0
     req = []
     WH = int(request.forms.get('WH'))
     Alpha = int(request.forms.get('Alpha'))
@@ -88,6 +94,17 @@ def Queue(req):
 
 def Result(req,FirstFlow,SecondFlow,ThirdFlow,FourthFlow):
     j = 0
+    z = 0
+    now = datetime.now()
+    date_time = now.strftime("%m/%d/%Y, %H:%M:%S")
     while j < len(req):
         print(str(round(req[j],3))+"   "+str(round(FirstFlow[j],3))+" "+str(round(SecondFlow[j],3))+" "+str(round(ThirdFlow[j],3))+" "+str(round(FourthFlow[j],3)))
         j = j + 1
+    f = open('C:\\Users\\79522\\Desktop\\text.txt','a')
+    f.write('\n' + 'Дата и время работы:' + date_time + '\n')
+    f.write('Результат выполнения программы:' + '\n')
+    f.write('Заявка, очередь и окончанение выполнения:' + '\n')
+    while z < len(req):
+        f.write(str(round(req[z],3))+"   "+str(round(FirstFlow[z],3))+" "+str(round(SecondFlow[z],3))+" "+str(round(ThirdFlow[z],3))+" "+str(round(FourthFlow[z],3)) + '\n')
+        z = z + 1
+    f.close()
