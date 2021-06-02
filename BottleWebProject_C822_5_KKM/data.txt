@@ -1,0 +1,6 @@
+
+ P(A) = 0.1; p(B) = 0.1; P(C) = 0.1; P(D) = 0.1; P(E) = 0.1
+RND A = 0.77; RND B = 0.86; RND C = 0.72; RND D = 0.81; RND E = 0.88
+System reliability P * = 0.03
+System reliability analytically P = 0.05149
+Absolute error - 0.02149
