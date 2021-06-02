@@ -26,8 +26,8 @@ def prepare_organiz():  #Метод для добавления нового п�
     f = open(r'C:\Users\79522\Desktop\text.txt','a')
     f.write('\n' + 'Дата и время работы:' + date_time + '\n')
     f.write('Введенные данные:' + '\n')
-    f.write('Время обработки каждой заявки:' + DSR + '\n')
-    f.write('Время принятия заявок:' + WH + '\n')
+    f.write('Время обработки каждой заявки:' + DSR + 'минут' +'\n')
+    f.write('Время принятия заявок:' + WH + 'минут' + '\n')
     f.write('Альфа:' + Alpha + '\n')
     f.close()
     return Resurs()
@@ -55,6 +55,7 @@ def Queue(req):
     i = 0
     x = 0
     FSTFRequest = [0,0,0,0]
+    req1 = req.copy()
     while i < len(req):
         if req[i] >= FSTFRequest[0]:
             FSTFRequest[0] = round(req[i] + DSR,3)
@@ -65,7 +66,7 @@ def Queue(req):
             i = i + 1
             continue
         elif req[i] >= FSTFRequest[1]:
-            FSTFRequest[1] = req[i] + DSR
+            FSTFRequest[1] = round(req[i] + DSR,3)
             FirstFlow.append(" ")
             SecondFlow.append(round(FSTFRequest[1],3))
             ThirdFlow.append(" ")
@@ -73,7 +74,7 @@ def Queue(req):
             i = i + 1
             continue
         elif req[i] >= FSTFRequest[2]:
-            FSTFRequest[2] = req[i] + DSR
+            FSTFRequest[2] = round(req[i] + DSR,3)
             FirstFlow.append(" ")
             SecondFlow.append(" ")
             ThirdFlow.append(round(FSTFRequest[2],3))
@@ -81,7 +82,7 @@ def Queue(req):
             i = i + 1
             continue
         elif req[i] >= FSTFRequest[3]:
-            FSTFRequest[3] = req[i] + DSR
+            FSTFRequest[3] = round(req[i] + DSR,3)
             FirstFlow.append(" ")
             SecondFlow.append(" ")
             ThirdFlow.append(" ")
@@ -90,17 +91,17 @@ def Queue(req):
             continue
         else:
             req[i] = round(req[i],3) + 0.01
-    Result(req,FirstFlow,SecondFlow,ThirdFlow,FourthFlow)
+    Result(req1,FirstFlow,SecondFlow,ThirdFlow,FourthFlow)
     arr = []
-    arr = (req,FirstFlow,SecondFlow,ThirdFlow,FourthFlow)
+    arr = (req1,FirstFlow,SecondFlow,ThirdFlow,FourthFlow)
     return template('Monte_Karlo_NEGR.html', title='Monte', message='GG',year=datetime.now().year, output=arr)
     
-def Result(req,FirstFlow,SecondFlow,ThirdFlow,FourthFlow):
+def Result(req1,FirstFlow,SecondFlow,ThirdFlow,FourthFlow):
     z = 0
     f = open(r'C:\Users\79522\Desktop\text.txt','a')
     f.write('Результат выполнения программы:' + '\n')
     f.write('Заявка, очередь и окончанение выполнения:' + '\n')
-    while z < len(req):
-        f.write(str(round(req[z],3))+"   "+str(FirstFlow[z])+" "+str(SecondFlow[z])+" "+str(ThirdFlow[z])+" "+str(FourthFlow[z]) + '\n')
+    while z < len(req1):
+        f.write(str(round(req1[z],3))+"   "+str(FirstFlow[z])+" "+str(SecondFlow[z])+" "+str(ThirdFlow[z])+" "+str(FourthFlow[z]) + '\n')
         z = z + 1
     f.close()

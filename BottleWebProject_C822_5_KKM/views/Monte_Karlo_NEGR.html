@@ -12,7 +12,7 @@
 <h3></h3>
 <form method="post">
     <!--  -->
-    <p><input type="text" size="50" name="DSR" placeholder="Duration of service of the request"></p>
+    <p><input type="text" size="50" name="DSR" placeholder="Duration of service of the request(minutes)"></p>
     <p><input type="text" size="50" name="WH" placeholder="Working minutes"></p>
     <p><input type="text" size="50" name="Alpha" placeholder="Alpha"></p>
     <p><input type="submit" value="Entry" class="btn btn-default"></p>
@@ -21,7 +21,7 @@
 
 <div class="table">
     % if output:
-    % req = [*output[0]]
+    % req1 = [*output[0]]
     % FirstFlow = [*output[1]]
     % SecondFlow = [*output[2]]
     % ThirdFlow = [*output[3]]
@@ -36,11 +36,11 @@
                 <th>Third flow</th>
                 <th>Fourth flow</th>
             </tr>
-            %size = len(req)
+            %size = len(req1)
             %for r in range(size):
             <tr>
                 <td>{{r}}</td>
-                <td>{{req[r]}}</td>
+                <td>{{req1[r]}} </td>
                 <td>{{FirstFlow[r]}}</td>
                 <td>{{SecondFlow[r]}}</td>
                 <td>{{ThirdFlow[r]}}</td>
