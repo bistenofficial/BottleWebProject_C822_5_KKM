@@ -1,0 +1,66 @@
+
+% rebase('layout.html', title='Home Page', year='2021', output=output, tre = tre)
+%import math
+    <form action="/home" method="post">
+        <p><input rows="1" cols="20" name="PA" placeholder="P(A)="></p>
+        <p><input rows="1" cols="20" name="PB" placeholder="P(B)="></p>
+        <p><input rows="1" cols="20" name="PC" placeholder="P(C)="></p>
+        <p><input rows="1" cols="20" name="PD" placeholder="P(D)="></p>
+        <p><input rows="1" cols="20" name="PE" placeholder="P(E)="></p>
+        <p><input type="submit" value="Send" class="btn btn-default"> </p>
+    </form>
+
+    <div class="table">
+        % if output:
+        % A = [*output[0]]
+        % B = [*output[1]]
+        % C = [*output[2]]
+        % D = [*output[3]]
+        % E = [*output[4]]
+        % AR = [*output[5]]
+        % BR = [*output[6]]
+        % CR = [*output[7]]
+        % DR = [*output[8]]
+        % ER = [*output[9]]
+        % TF = [*output[10]]
+
+        <h4>System reliability P * - {{tre/100}}</h4>
+        <h4>System reliability analytically P - {{round(nad,5)}}</h4>
+        <h4>Absolute error -{{round(abs(tre/100-nad),5)}}</h4>
+        <table border="1">
+            <tbody>
+                <tr>
+                    <th>№</th>
+                    <th>A</th>
+                    <th>B</th>
+                    <th>C</th>
+                    <th>D</th>
+                    <th>E</th>
+                    <th>RND A</th>
+                    <th>RND B</th>
+                    <th>RND C</th>
+                    <th>RND D</th>
+                    <th>RND E</th>
+                    <th>True or False</th>
+                </tr>
+                %size = len(AR)
+                %for r in range(size):
+                <tr>
+                    <td>{{r}}</td>
+                    <td>{{A[0]}}</td>
+                    <td>{{B[0]}}</td>
+                    <td>{{C[0]}}</td>
+                    <td>{{D[0]}}</td>
+                    <td>{{E[0]}}</td>
+                    <td>{{AR[r]}}</td>
+                    <td>{{BR[r]}}</td>
+                    <td>{{CR[r]}}</td>
+                    <td>{{DR[r]}}</td>
+                    <td>{{ER[r]}}</td>
+                    <td>{{TF[r]}}</td>
+
+                </tr>
+                %end
+            </tbody>
+        </table>
+    </div>
