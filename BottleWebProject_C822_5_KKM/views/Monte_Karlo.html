@@ -1,29 +1,66 @@
-% rebase('layout.tpl', title='Home Page', year=year)
 
-<div class="jumbotron">
-    <h1>Monte_Karlo</h1>
-    <p class="lead">Bottle is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://bottlepy.org/docs/dev/index.html" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-</div>
+% rebase('layout.html', title='Home Page', year='2021', output=output, tre = tre)
+%import math
+    <form action="/home" method="post">
+        <p><input rows="1" cols="20" name="PA" placeholder="P(A)="></p>
+        <p><input rows="1" cols="20" name="PB" placeholder="P(B)="></p>
+        <p><input rows="1" cols="20" name="PC" placeholder="P(C)="></p>
+        <p><input rows="1" cols="20" name="PD" placeholder="P(D)="></p>
+        <p><input rows="1" cols="20" name="PE" placeholder="P(E)="></p>
+        <p><input type="submit" value="Send" class="btn btn-default"> </p>
+    </form>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            Bottle gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://bottlepy.org/docs/dev/index.html">Learn more &raquo;</a></p>
+    <div class="table">
+        % if output:
+        % A = [*output[0]]
+        % B = [*output[1]]
+        % C = [*output[2]]
+        % D = [*output[3]]
+        % E = [*output[4]]
+        % AR = [*output[5]]
+        % BR = [*output[6]]
+        % CR = [*output[7]]
+        % DR = [*output[8]]
+        % ER = [*output[9]]
+        % TF = [*output[10]]
+
+        <h4>System reliability P * - {{tre/100}}</h4>
+        <h4>System reliability analytically P - {{round(nad,5)}}</h4>
+        <h4>Absolute error -{{round(abs(tre/100-nad),5)}}</h4>
+        <table border="1">
+            <tbody>
+                <tr>
+                    <th>№</th>
+                    <th>A</th>
+                    <th>B</th>
+                    <th>C</th>
+                    <th>D</th>
+                    <th>E</th>
+                    <th>RND A</th>
+                    <th>RND B</th>
+                    <th>RND C</th>
+                    <th>RND D</th>
+                    <th>RND E</th>
+                    <th>True or False</th>
+                </tr>
+                %size = len(AR)
+                %for r in range(size):
+                <tr>
+                    <td>{{r}}</td>
+                    <td>{{A[0]}}</td>
+                    <td>{{B[0]}}</td>
+                    <td>{{C[0]}}</td>
+                    <td>{{D[0]}}</td>
+                    <td>{{E[0]}}</td>
+                    <td>{{AR[r]}}</td>
+                    <td>{{BR[r]}}</td>
+                    <td>{{CR[r]}}</td>
+                    <td>{{DR[r]}}</td>
+                    <td>{{ER[r]}}</td>
+                    <td>{{TF[r]}}</td>
+
+                </tr>
+                %end
+            </tbody>
+        </table>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>The Python Package Index is a repository of software for the Python programming language.</p>
-        <p><a class="btn btn-default" href="https://pypi.python.org/pypi">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Microsoft Azure</h2>
-        <p>You can easily publish to Microsoft Azure using Visual Studio. Find out how you can host your application using a free trial today.</p>
-        <p><a class="btn btn-default" href="http://azure.microsoft.com">Learn more &raquo;</a></p>
-    </div>
-</div>
