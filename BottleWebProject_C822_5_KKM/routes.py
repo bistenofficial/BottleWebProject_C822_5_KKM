@@ -42,7 +42,8 @@ def about():
     return dict(
         output = "",
         title='About',
-
+        year=datetime.now().year
+    )
 @route('/Monte_Karlo')
 @view('Monte_Karlo.html')
 def about(output=[],tre = 0,nad = 0):
