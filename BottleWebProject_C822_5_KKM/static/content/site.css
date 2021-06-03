@@ -25,9 +25,12 @@ label {
     min-width: 100px;
 }
 
-ul {
-    list-style-type: none;
+
+
+.row > ul {
+    list-style-type: circle;
 }
+
 
 .form__line {
     padding: 8px;
@@ -74,6 +77,28 @@ ul {
 .form__line {
     justify-content: center;
     display: flex;
+}
+
+.about {
+    justify-content: left;
+    display: flex;
+}
+
+    .about > label {
+        justify-content: left;
+        display: flex;
+        max-width: 250px;
+    }
+    .about > ul {
+        list-style-type: circle;
+    }
+    .about > ol {
+        list-style-type: decimal;
+    }
+
+
+.col-md-4 > ul {
+    list-style-type: circle;
 }
 
 .form-line > label {
