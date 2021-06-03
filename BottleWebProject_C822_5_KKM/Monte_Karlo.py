@@ -15,16 +15,6 @@ def Monte():
     PC = (float)(request.forms.get('PC'))
     PD = (float)(request.forms.get('PD'))
     PE = (float)(request.forms.get('PE'))
-    if not PA: #Проверка на заполненность
-        return "Enter P(A)"
-    if not PB:
-        return "Enter P(B)"
-    if not PC:
-        return "Enter P(C)"
-    if not PD:
-        return "Enter P(D)"
-    if not PE:
-        return "Enter P(E)"
     
     arr = []
     PAA = []
