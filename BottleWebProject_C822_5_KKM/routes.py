@@ -35,6 +35,14 @@ def about():
         year=datetime.now().year
     )
 
+@route('/three-chanel_system_with_rejection')
+@view('three-chanel_system_with_rejection')
+def about():
+    """Renders the about page."""
+    return dict(
+        output = "",
+        title='About',
+
 @route('/Monte_Karlo')
 @view('Monte_Karlo.html')
 def about(output=[],tre = 0,nad = 0):

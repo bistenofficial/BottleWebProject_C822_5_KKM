@@ -1,14 +1,98 @@
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 11pt;
+    background-color: #f0f0f0;
+    color: #333; 
 }
 
-/* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
 
+.form__wrapper {
+    width: 300px;
+    margin: 10px auto;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    font-size: 11pt;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    min-width: 100px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.form__line {
+    padding: 8px;
+}
+
+    .form__line > label {
+        padding: 8px 16px 8px 0;
+        justify-content: center;
+    }
+
+    .form__line > input {
+        font-family: Arial, Verdana, sans-serif;
+        font-size: 11pt;
+        justify-content: center;
+        border-style: groove;
+        border-width: 4px;
+        background-color: #f0f0f0;
+        color: #333;
+        flex: 1;
+        padding: 8px;
+    }
+
+.form__row > button {
+    font-family: Arial, Verdana, sans-serif;
+    background: #f0f0f0;
+    color: #333;
+    border: 6px;
+    padding: 11pt;
+}
+
+
+.button {
+    font-family: Arial, Verdana, sans-serif;
+    background-color: #f0f0f0;
+    border: ridge;
+    color: #333;
+    padding: 10px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+}
+
+.form__line {
+    justify-content: center;
+    display: flex;
+}
+
+.form-line > label {
+    font-family: Arial, Verdana, sans-serif;
+    justify-content: center;
+    font-size: 11pt; /* Размер основного шрифта в пунктах  */
+    background-color: #f0f0f0; /* Цвет фона веб-страницы */
+    color: #333;
+    flex: 1;
+}
+
+.form-line > input {
+    font-family: Arial, Verdana, sans-serif;
+    justify-content: center;
+    font-size: 11pt; /* Размер основного шрифта в пунктах  */
+    background-color: #f0f0f0; /* Цвет фона веб-страницы */
+    color: #333;
+    flex: 1;
+}
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
@@ -39,4 +123,13 @@ input[type="checkbox"].input-validation-error {
 
 .validation-summary-valid {
     display: none;
+}
+
+
+
+h1 {
+    color: #a52a2a; /* Цвет заголовка */
+    font-size: 24pt; /* Размер шрифта в пунктах */
+    font-family: Georgia, Times, serif; /* Семейство шрифтов */
+    font-weight: normal; /* Нормальное начертание текста  */
 }
