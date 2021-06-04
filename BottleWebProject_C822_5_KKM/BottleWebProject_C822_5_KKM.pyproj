@@ -19,7 +19,7 @@
     <Name>BottleWebProject_C822_5_KKM</Name>
     <RootNamespace>BottleWebProject_C822_5_KKM</RootNamespace>
     <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
-    <InterpreterId>MSBuild|env1|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
     <TestFramework>unittest</TestFramework>
     <UnitTestPattern>test*.py</UnitTestPattern>
     <UnitTestRootDirectory>.</UnitTestRootDirectory>
@@ -49,6 +49,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="test_2.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="test_kirov.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -96,6 +99,15 @@
       <Id>env1</Id>
       <Version>3.7</Version>
       <Description>env1 (Python 3.7 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+    <Interpreter Include="env\">
+      <Id>env</Id>
+      <Version>3.7</Version>
+      <Description>env (Python 3.7)</Description>
       <InterpreterPath>Scripts\python.exe</InterpreterPath>
       <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
       <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
