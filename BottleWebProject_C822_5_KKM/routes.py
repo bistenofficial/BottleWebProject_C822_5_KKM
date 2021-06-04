@@ -5,6 +5,7 @@ Routes and views for the bottle application.
 from bottle import route, view
 from datetime import datetime
 import Monte_Karlo
+import Monte
 
 @route('/')
 @route('/home')
@@ -12,16 +13,6 @@ import Monte_Karlo
 def home():
     """Renders the home page."""
     return dict(
-        year=datetime.now().year
-    )
-
-@route('/contact')
-@view('contact')
-def contact():
-    """Renders the contact page."""
-    return dict(
-        title='Contact',
-        message='Your contact page.',
         year=datetime.now().year
     )
 
@@ -54,5 +45,15 @@ def about(output=[],tre = 0,nad = 0):
         nad = nad,
         title='Monte',
         message='Your application description page.',
+        year=datetime.now().year
+    )
+
+@route('/Monte_Karlo_NEGR')
+@view('Monte_Karlo_NEGR')
+def about(output=[]):
+    """Renders the about page."""
+    return dict(
+        output = output,
+        title='Monte',
         year=datetime.now().year
     )
