@@ -23,7 +23,7 @@ def prepare_organiz():  #Метод для добавления нового п�
         return "Enter correct Alpha!"
     now = datetime.now()
     date_time = now.strftime("%m/%d/%Y, %H:%M:%S")
-    f = open(r'C:\Users\79522\Desktop\text.txt','a')
+    f = open(r'text.txt','a')
     f.write('\n' + 'Дата и время работы:' + date_time + '\n')
     f.write('Введенные данные:' + '\n')
     f.write('Время обработки каждой заявки:' + DSR + 'минут' +'\n')
@@ -98,7 +98,7 @@ def Queue(req):
     
 def Result(req1,FirstFlow,SecondFlow,ThirdFlow,FourthFlow):
     z = 0
-    f = open(r'C:\Users\79522\Desktop\text.txt','a')
+    f = open(r'text.txt','a')
     f.write('Результат выполнения программы:' + '\n')
     f.write('Заявка, очередь и окончанение выполнения:' + '\n')
     while z < len(req1):
