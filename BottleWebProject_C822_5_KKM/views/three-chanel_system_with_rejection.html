@@ -4,7 +4,7 @@
 % import form_handler
 
 <div class="jumbotron">
-	<h1>{{ title }}</h1>
+	<h1>Three-chanel system with rejection</h1>
 	<h3>
 		The idea of ​​the method is extremely simple and consists in the following.
 
@@ -12,7 +12,8 @@
 
 		Any probabilistic problem can be solved using the Monte Carlo method, but it is justified when the drawing procedure is simpler, and not more complicated than analytical calculation.
 	</h3>
-	<h4 align="justify">
+	<p></p>
+	<h3 align="justify">
 		The Monte Carlo method is a statistical modeling or simulation method. This is a numerical method for solving problems by simulating random variables.
 		The idea of the method is extremely simple and consists in the following.
 		Instead of describing the process with the help of an analytical device, a random phenomenon is drawn using a specially organized procedure that includes randomness and gives a random result.
@@ -21,62 +22,68 @@
 		After such processing, you can get: the probability of the event, the mathematical expectation, and so on.
 		Using the Monte Carlo method, any probabilistic problem can be solved, but it is justified when the drawing procedure is simpler, and not more complicated than an analytical calculation.
 		<br /> <br />
-		Example. The three-channel system with rejection receives a Poisson flow of requests.
-		The time between the receipt of two consecutive applications is distributed according to the exponential law <i>&fnof;</i>(t)=5e<sup>-5t</sup>.
+	</h3>
+	<h1>Example:</h1>
+	<h3 align="justify">
+		 The three-channel system with rejection receives a Poisson flow of requests.
+		The time between the receipt of two consecutive applications is distributed according to the exponential law <i>&fnof;(t)=5e<sup>-5t</sup></i>
 		The service duration of each request is 0.5 minutes. Find the Monte Carlo mathematical expectation a of the number of served requests for the time T=4 min.
 		<br /> <br />
-		Solution: <br />
-		Let T<sub>1</sub>=0 be the moment of receipt of the first application. The request will be sent to the first channel and will be served by it.
-		The time when the service of the first request ends is T<sub>1</sub>+0.5=0+0.5=0.5. We write one in the counter of served requests. <br />
+	</h3>
+	<h1>Solution:</h1>
+	<h3 align="justify">
+		<br />
+		Let <i>T<sub>1</sub>=0</i> be the moment of receipt of the first application. The request will be sent to the first channel and will be served by it.
+		The time when the service of the first request ends is <i>T<sub>1</sub>+0.5=0+0.5=0.5</i>. We write one in the counter of served requests. <br />
 		The moments of receipt of subsequent applications are found by the formula: <br />
-		T<sub>i</sub>= T<sub>i-1</sub>+t<sub>i</sub>, <br />
+		<i>T<sub>i</sub>= T<sub>i-1</sub>+t<sub>i</sub></i>, <br />
 		where t<sub>i</sub> - the length of time between two consecutive applications with numbers i-1 and i. <br />
-		Possible t<sub>i</sub> = −(1/&lambda;) ln r<sub>i</sub>. <br />
-		Given that, by the condition, &lambda;=5, we get t = -0.2 ln r<sub>i</sub>. <br />
-		Random numbers r<sub>i</sub> are generated using a random number generator. Let the time between the receipt of the first and second applications be a random number equal to r<sub>1</sub>=0.10. <br />
-		Then t<sub>2</sub>=-0.2*ln(0.10)=0.460. The first request was received at the time T<sub>1</sub>=0.
-		Therefore, the second request was received at the moment T<sub>2</sub>=T<sub>1</sub>+0.460=0+0.460=0.460.
+		Possible <i>t<sub>i</sub> = −(1/&lambda;) ln r<sub>i</sub></i>. <br />
+		Given that, by the condition,<i> &lambda;=5, we get t = -0.2 ln r<sub>i</sub></i>. <br />
+		Random numbers <i>r<sub>i</sub></i> are generated using a random number generator. Let the time between the receipt of the first and second applications be a random number equal to<i> r<sub>1</sub>=0.10</i>. <br />
+		Then <i>t<sub>2</sub>=-0.2*ln(0.10)=0.460</i>. The first request was received at the time <i>T<sub>1</sub>=0</i>.
+		Therefore, the second request was received at the moment <i>T<sub>2</sub>=T<sub>1</sub>+0.460=0+0.460=0.460</i>.
 		At this moment, the first channel is still busy serving the first request, so the second request will be received in the second and will be served by it. <br />
-		The moment when the second request is finished, T<sub>2</sub>+0.5=0.460+0.5=0.960.<br /> Using the next random number r<sub>2</sub>=0.09, we will play the time t<sub>3</sub> between the second and third applications: <br />
-		t<sub>3</sub>=-0.2*ln(0.09)=0.2*2.41=0.482. <br />
-		The second request was received at the time T<sub>2</sub>=0.460. Therefore, the third request was received at the moment T<sub>3</sub>=T<sub>2</sub>+0.482=0.460+0.482=0.942.
+		The moment when the second request is finished, <i>T<sub>2</sub>+0.5=0.460+0.5=0.960</i>.<br /> Using the next random number <i>r<sub>2</sub>=0.09</i>, we will play the time <i>t<sub>3</sub></i> between the second and third applications: <br />
+		<i>t<sub>3</sub>=-0.2*ln(0.09)=0.2*2.41=0.482</i>. <br />
+		The second request was received at the time <i>T<sub>2</sub>=0.460</i>. Therefore, the third request was received at the moment <i>T<sub>3</sub>=T<sub>2</sub>+0.482=0.460+0.482=0.942</i>.
 		At this moment, the first channel is already free, and the third request will be received in the first channel.
-		The end of service of the third request T<sub>3</sub>+0.5=0.942+0.5=1.442. Further calculation is made similarly (Table 1),
+		The end of service of the third request <i>T<sub>3</sub>+0.5=0.942+0.5=1.442</i>. Further calculation is made similarly (Table 1),
 		and if at the time of receipt of the request all channels are busy (the time of receipt of the request is less than each of the end of service moments),
 		the request gets in the queue and waits for one of the channels to be released. <br />
 		Note that the service of the 20th request will end at time 4.148>4, so this request is rejected. <br />
 		The test is terminated ("stop" is written in the table) if the time of receipt of the application is T>4.
 		<br /> <br />
-	</h4>
+	</h3>
 </div>
 
 
 <form class="form" method="post">
-	<p align="center">Any numbers greater than 0, unsigned<p/>
+	<p align="center">Any numbers greater than 0, unsigned, less then 100, integer<p/>
 	<ul>
 		<li class="form__line">
 			<label class="form__label">
 				Enter <abbr title="How long request will take in minutes">t1:</abbr>
 			</label>
-			<input class="form__input" type="number" name="T1" />
+			<input class="form__input" type="number" max="100" name="T1" />
 		</li>
 		<li class="form__line">
 			<label class="form__label">
 				Enter <abbr title="How long in hours">t2:</abbr>
 			</label>
-			<input class="form__input" type="number" name="T2" />
+			<input class="form__input" type="number" max="100" name="T2" />
 		</li>
 		<li class="form__line">
 			<label class="form__label">
 				Enter <abbr title="modifier in formula f(t) = a*e^(-at)">a :</abbr>
 			</label>
-			<input class="form__input" type="number" name="A" />
+			<input class="form__input" type="number" name="A" max="100"/>
 		</li>
 		<li class="form__line">
 			<label class="form__label">
 				How much<abbr title="how many tests do you want to run">:</abbr>
 			</label>
-			<input class="form__input" type="number" name="TIMES" />
+			<input class="form__input" type="number" max="100" name="TIMES" />
 		</li>
 		<li class="form__line">
 			<p><input type="submit" value="Calculate"></p>
