@@ -2,14 +2,10 @@
 % rebase('layout.html', title='Home Page', year='2021', output=output)
 
 <meta charset="utf-8">
-<style>
-    body {
-        background: #000000;
-        color: #FFFFFF;
-    }
-</style>
-<h2>Four-channel queuing system with limited queue</h2>
-<h4 align="justify">
+
+<div class="jumbotron"> 
+    <h2>Four-channel queuing system with limited queue</h2>
+    <h4 align="justify">
     The Monte Carlo method is a statistical modeling or simulation method. This is a numerical method for solving problems by simulating random variables.
     The idea of the method is extremely simple and consists in the following.
     Instead of describing the process with the help of an analytical device, a random phenomenon is drawn using a specially organized procedure that includes randomness and gives a random result.
@@ -47,13 +43,14 @@
     Table 1
     <br />
     <a><img style="height: 450px; width: 650px;" src="static\img\Primer.jpg" /></a>
-</h4>
-<form method="post">
+    </h4>
+</div>
+<form method="post" style="text-align:center">
     <!--  -->
     <p><input type="text" size="50" name="DSR" placeholder="Duration of service of the request(minutes)"></p>
     <p><input type="text" size="50" name="WH" placeholder="Working minutes"></p>
     <p><input type="text" size="50" name="Alpha" placeholder="Alpha"></p>
-    <p><input type="submit" value="Entry" class="btn btn-default"></p>
+    <p><input type="submit" value="Entry" ></p>
 </form>
 
 

@@ -19,7 +19,7 @@
     <Name>BottleWebProject_C822_5_KKM</Name>
     <RootNamespace>BottleWebProject_C822_5_KKM</RootNamespace>
     <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
-    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>MSBuild|env1|$(MSBuildProjectFullPath)</InterpreterId>
     <TestFramework>unittest</TestFramework>
     <UnitTestPattern>test*.py</UnitTestPattern>
     <UnitTestRootDirectory>.</UnitTestRootDirectory>
@@ -92,15 +92,6 @@
     <Content Include="views\layout.tpl" />
   </ItemGroup>
   <ItemGroup>
-    <Interpreter Include="..\..\..\..\..\OneDrive\Study\3 course\env\env\">
-      <Id>env</Id>
-      <Version>3.7</Version>
-      <Description>env (Python 3.7)</Description>
-      <InterpreterPath>Scripts\python.exe</InterpreterPath>
-      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
-      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
-      <Architecture>X64</Architecture>
-    </Interpreter>
     <Interpreter Include="..\..\env1\">
       <Id>env1</Id>
       <Version>3.7</Version>
