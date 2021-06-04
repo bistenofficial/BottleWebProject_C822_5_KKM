@@ -25,8 +25,8 @@ label {
     min-width: 100px;
 }
 
-ul {
-    list-style-type: none;
+.row > ul {
+    list-style-type: circle;
 }
 
 .form__line {
@@ -76,11 +76,33 @@ ul {
     display: flex;
 }
 
+.about {
+    justify-content: left;
+    display: flex;
+}
+
+    .about > label {
+        justify-content: left;
+        display: flex;
+        max-width: 250px;
+    }
+    .about > ul {
+        list-style-type: circle;
+    }
+    .about > ol {
+        list-style-type: decimal;
+    }
+
+
+.col-md-4 > ul {
+    list-style-type: circle;
+}
+
 .form-line > label {
     font-family: Arial, Verdana, sans-serif;
     justify-content: center;
-    font-size: 11pt; /* Размер основного шрифта в пунктах  */
-    background-color: #f0f0f0; /* Цвет фона веб-страницы */
+    font-size: 11pt; /* ГђГ Г§Г¬ГҐГ° Г®Г±Г­Г®ГўГ­Г®ГЈГ® ГёГ°ГЁГґГІГ  Гў ГЇГіГ­ГЄГІГ Гµ  */
+    background-color: #f0f0f0; /* Г–ГўГҐГІ ГґГ®Г­Г  ГўГҐГЎ-Г±ГІГ°Г Г­ГЁГ¶Г» */
     color: #333;
     flex: 1;
 }
@@ -88,8 +110,8 @@ ul {
 .form-line > input {
     font-family: Arial, Verdana, sans-serif;
     justify-content: center;
-    font-size: 11pt; /* Размер основного шрифта в пунктах  */
-    background-color: #f0f0f0; /* Цвет фона веб-страницы */
+    font-size: 11pt; /* ГђГ Г§Г¬ГҐГ° Г®Г±Г­Г®ГўГ­Г®ГЈГ® ГёГ°ГЁГґГІГ  Гў ГЇГіГ­ГЄГІГ Гµ  */
+    background-color: #f0f0f0; /* Г–ГўГҐГІ ГґГ®Г­Г  ГўГҐГЎ-Г±ГІГ°Г Г­ГЁГ¶Г» */
     color: #333;
     flex: 1;
 }
@@ -128,8 +150,8 @@ input[type="checkbox"].input-validation-error {
 
 
 h1 {
-    color: #a52a2a; /* Цвет заголовка */
-    font-size: 24pt; /* Размер шрифта в пунктах */
-    font-family: Georgia, Times, serif; /* Семейство шрифтов */
-    font-weight: normal; /* Нормальное начертание текста  */
+    color: #a52a2a; /* Г–ГўГҐГІ Г§Г ГЈГ®Г«Г®ГўГЄГ  */
+    font-size: 24pt; /* ГђГ Г§Г¬ГҐГ° ГёГ°ГЁГґГІГ  Гў ГЇГіГ­ГЄГІГ Гµ */
+    font-family: Georgia, Times, serif; /* Г‘ГҐГ¬ГҐГ©Г±ГІГўГ® ГёГ°ГЁГґГІГ®Гў */
+    font-weight: normal; /* ГЌГ®Г°Г¬Г Г«ГјГ­Г®ГҐ Г­Г Г·ГҐГ°ГІГ Г­ГЁГҐ ГІГҐГЄГ±ГІГ   */
 }

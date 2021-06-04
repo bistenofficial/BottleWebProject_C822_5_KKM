@@ -5,14 +5,17 @@ from datetime import datetime
 import re
 import os
 
-def check_mail(str): # fuction for input check
-    pattern=r"^(?=.+)(?:[1-9]\d*)?(?:\.\d+)?$"
+def check_input(str): # fuction for input check
+    pattern=r"^(?:[1-9]\d*|0)?(?:\.\d+)?$"
     number_re=re.compile(pattern)
-    return bool(number_re.findall(str))
+    if (number_re.findall(str) and str):
+        return True
+    else:
+        return False
 
 @post('/three-chanel_system_with_rejection', method='post')
 def threeChanelSystemWithRejection(): 
-    if (check_mail(request.forms.get('T2')) and check_mail(request.forms.get('A')) and check_mail(request.forms.get('T1')) and check_mail(request.forms.get('TIMES'))):
+    if (check_input(request.forms.get('T2')) and check_input(request.forms.get('A')) and check_input(request.forms.get('T1')) and check_input(request.forms.get('TIMES'))):
         timeEnd = float(request.forms.get('T2'))
         multiplier = float(request.forms.get('A'))
         count = int(request.forms.get('TIMES'))
