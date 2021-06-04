@@ -49,6 +49,8 @@ def about(output=[],tre = 0,nad = 0):
     )
 
 
+
+
 @route('/Monte_Karlo_NEGR')
 @view('Monte_Karlo_NEGR')
 def about(output=[]):
