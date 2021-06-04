@@ -49,15 +49,6 @@ def about(output=[],tre = 0,nad = 0):
     )
 
 
-@route('/three-chanel_system_with_rejection')
-@view('three-chanel_system_with_rejection')
-def about():
-    """Renders the about page."""
-    return dict(
-        output = "",
-        title='About',
-        message='Your application description page.',
-
 @route('/Monte_Karlo_NEGR')
 @view('Monte_Karlo_NEGR')
 def about(output=[]):

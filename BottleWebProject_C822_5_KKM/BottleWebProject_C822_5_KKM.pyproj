@@ -36,7 +36,7 @@
     <Compile Include="check.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Monte_Karlo.py">
+    <Compile Include="Monte_Karlo.py" />
     <Compile Include="Check_Monte_Karlo_NEGR.py">
       <SubType>Code</SubType>
     </Compile>
