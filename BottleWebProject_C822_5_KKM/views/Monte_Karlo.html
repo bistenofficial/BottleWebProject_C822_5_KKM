@@ -1,0 +1,109 @@
+
+% rebase('layout.html', title='Home Page', year='2021', output=output, tre = tre)
+%import math
+    <div class="jumbotron">
+        <h1>Monte Carlo method</h1>
+        <h3>
+            The Monte Carlo method is a statistical modeling or simulation technique. It is a numerical method for solving problems by simulating random variables.
+        </h3>
+        The idea of ​​the method is extremely simple and consists in the following.
+        <h3>
+            Instead of describing the process with the help of an analytical apparatus, a drawing of a random phenomenon is carried out using a specially organized procedure that includes randomness and gives a random result. The implementation of a random process each time develops differently, that is, we get different outcomes of the process under consideration. This set of realizations can be used as some kind of artificially obtained statistical material that can be processed by the usual methods of mathematical statistics. After such processing, you can get: the probability of an event, the mathematical expectation, etc.
+        </h3>
+        <h3>
+        Any probabilistic problem can be solved using the Monte Carlo method, but it is justified when the drawing procedure is simpler, and not more complicated than analytical calculation.
+        </h3>
+    </div>
+    <h4 style="text-align:center">Enter the probabilities (example: 1.0, 0.22)</h4>
+    <form action="/home" method="post">
+        <ul>
+            <li class="form__line">
+                <label class="form__label">
+                    Enter <abbr title="Element A uptime probability"> P(A):</abbr>
+                </label>
+                <input class="form__input"  name="PA">
+            </li>
+            <li class="form__line">
+                <label class="form__label">
+                    Enter <abbr title="Element B uptime probability"> P(B):</abbr>
+                </label>
+                <input class="form__input"  name="PB">
+            </li>
+            <li class="form__line">
+                <label class="form__label">
+                    Enter <abbr title="Element C uptime probability"> P(C):</abbr>
+                </label>
+                <input class="form__input"  rows="1" cols="20" name="PC">
+            </li>
+            <li class="form__line">
+                <label class="form__label">
+                    Enter <abbr title="Element D uptime probability"> P(D):</abbr>
+                </label>
+                <input class="form__input" rows="1" cols="20" name="PD">
+            </li>
+            <li class="form__line">
+                <label class="form__label">
+                    Enter <abbr title="Element E uptime probability"> P(E):</abbr>
+                </label>
+                <input class="form__input" rows="1" cols="20" name="PE">
+            </li>
+            <li class="form__line"><p><input type="submit" value="Calculate"/> </p></li>
+        </ul>
+        
+    </form>
+
+    <div class="table">
+        % if output:
+        % A = [*output[0]]
+        % B = [*output[1]]
+        % C = [*output[2]]
+        % D = [*output[3]]
+        % E = [*output[4]]
+        % AR = [*output[5]]
+        % BR = [*output[6]]
+        % CR = [*output[7]]
+        % DR = [*output[8]]
+        % ER = [*output[9]]
+        % TF = [*output[10]]
+
+        <h4>System reliability P*= {{tre/100}}</h4>
+        <h4>System reliability analytically P= {{round(nad,5)}}</h4>
+        <h4>Absolute error = {{round(abs(tre/100-nad),5)}}</h4>
+        <h4>                                                      </h4>
+        <table border="1">
+            <tbody>
+                <tr>
+                    <th>№</th>
+                    <th>A</th>
+                    <th>B</th>
+                    <th>C</th>
+                    <th>D</th>
+                    <th>E</th>
+                    <th>RND A</th>
+                    <th>RND B</th>
+                    <th>RND C</th>
+                    <th>RND D</th>
+                    <th>RND E</th>
+                    <th>True or False</th>
+                </tr>
+                %size = len(AR)
+                %for r in range(size):
+                <tr>
+                    <td>{{r}}</td>
+                    <td>{{A[0]}}</td>
+                    <td>{{B[0]}}</td>
+                    <td>{{C[0]}}</td>
+                    <td>{{D[0]}}</td>
+                    <td>{{E[0]}}</td>
+                    <td>{{AR[r]}}</td>
+                    <td>{{BR[r]}}</td>
+                    <td>{{CR[r]}}</td>
+                    <td>{{DR[r]}}</td>
+                    <td>{{ER[r]}}</td>
+                    <td>{{TF[r]}}</td>
+
+                </tr>
+                %end
+            </tbody>
+        </table>
+    </div>
