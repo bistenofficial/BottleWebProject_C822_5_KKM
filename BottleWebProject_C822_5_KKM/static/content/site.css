@@ -147,11 +147,17 @@ input[type="checkbox"].input-validation-error {
     display: none;
 }
 
+.jumbotron > h1 {
+    color: #a52a2a;
+    font-size: 28pt;
+    font-family: Georgia, Times, serif;
+    font-weight: normal;
+}
 
 
 h1 {
-    color: #a52a2a; /* Öâåò çàãîëîâêà */
-    font-size: 24pt; /* Ðàçìåð øðèôòà â ïóíêòàõ */
-    font-family: Georgia, Times, serif; /* Ñåìåéñòâî øðèôòîâ */
-    font-weight: normal; /* Íîðìàëüíîå íà÷åðòàíèå òåêñòà  */
+    color: #a52a2a;
+    font-size: 28pt;
+    font-family: Georgia, Times, serif;
+    font-weight: normal;
 }
