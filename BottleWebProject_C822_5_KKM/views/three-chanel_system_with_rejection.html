@@ -1,4 +1,6 @@
 ﻿
+<!DOCTYPE html>
+
 % rebase('layout.html', title=title, year=year, output=output)
 
 % import form_handler
@@ -13,7 +15,7 @@
 		Any probabilistic problem can be solved using the Monte Carlo method, but it is justified when the drawing procedure is simpler, and not more complicated than analytical calculation.
 	</h3>
 	<p></p>
-	<h3 align="justify">
+	<h3>
 		The Monte Carlo method is a statistical modeling or simulation method. This is a numerical method for solving problems by simulating random variables.
 		The idea of the method is extremely simple and consists in the following.
 		Instead of describing the process with the help of an analytical device, a random phenomenon is drawn using a specially organized procedure that includes randomness and gives a random result.
@@ -24,14 +26,14 @@
 		<br /> <br />
 	</h3>
 	<h1>Example:</h1>
-	<h3 align="justify">
+	<h3>
 		 The three-channel system with rejection receives a Poisson flow of requests.
 		The time between the receipt of two consecutive applications is distributed according to the exponential law <i>&fnof;(t)=5e<sup>-5t</sup></i>
 		The service duration of each request is 0.5 minutes. Find the Monte Carlo mathematical expectation a of the number of served requests for the time T=4 min.
 		<br /> <br />
 	</h3>
 	<h1>Solution:</h1>
-	<h3 align="justify">
+	<h3>
 		<br />
 		Let <i>T<sub>1</sub>=0</i> be the moment of receipt of the first application. The request will be sent to the first channel and will be served by it.
 		The time when the service of the first request ends is <i>T<sub>1</sub>+0.5=0+0.5=0.5</i>. We write one in the counter of served requests. <br />
@@ -98,8 +100,12 @@
 	%	secondChanel = [*output[2]]
 	%	thirdChanel = [*output[3]]
 	%	serviced = [*output[4]]
-	<table width="1000" bgcolor="#c0c0c0" cellspacing="0" cellpadding="5" border="1" align="center">
+	<table width="1000" border="1">
+		<caption>
+			test results
+		</caption>
 		<tbody>
+
 			<tr>
 				<th>№</th>
 				<th>time when come</th>

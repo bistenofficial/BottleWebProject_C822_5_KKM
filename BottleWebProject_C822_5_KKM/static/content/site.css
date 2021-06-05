@@ -101,8 +101,8 @@ label {
 .form-line > label {
     font-family: Arial, Verdana, sans-serif;
     justify-content: center;
-    font-size: 11pt; /* Ðàçìåð îñíîâíîãî øðèôòà â ïóíêòàõ  */
-    background-color: #f0f0f0; /* Öâåò ôîíà âåá-ñòðàíèöû */
+    font-size: 11pt;
+    background-color: #f0f0f0; 
     color: #333;
     flex: 1;
 }
@@ -110,8 +110,8 @@ label {
 .form-line > input {
     font-family: Arial, Verdana, sans-serif;
     justify-content: center;
-    font-size: 11pt; /* Ðàçìåð îñíîâíîãî øðèôòà â ïóíêòàõ  */
-    background-color: #f0f0f0; /* Öâåò ôîíà âåá-ñòðàíèöû */
+    font-size: 11pt; 
+    background-color: #f0f0f0; 
     color: #333;
     flex: 1;
 }
@@ -153,6 +153,7 @@ input[type="checkbox"].input-validation-error {
     font-family: Georgia, Times, serif;
     font-weight: normal;
 }
+
 
 
 h1 {
