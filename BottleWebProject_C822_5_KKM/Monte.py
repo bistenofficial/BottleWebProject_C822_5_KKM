@@ -5,7 +5,7 @@ from datetime import datetime
 from bottle import route, template, post, request
 
 @post("/Monte_Karlo_NEGR", method="post")
-def prepare_organiz():  #Метод для добавления нового партнера
+def prepare_organiz():  #Метод проверки введенных данных 
     DSR = request.forms.get('DSR') #Считывание данных
     WH = request.forms.get('WH')
     Alpha = request.forms.get('Alpha')
@@ -15,13 +15,13 @@ def prepare_organiz():  #Метод для добавления нового п�
         return "Enter Working minutes"
     if not Alpha:
         return "Enter Alpha"
-    if not Check_Monte_Karlo_NEGR.check_string(DSR):
+    if not Check_Monte_Karlo_NEGR.check_string(DSR): #Проверка правильности введенных данных
         return "Enter correct Duration of service of the request!"
     if not Check_Monte_Karlo_NEGR.check_string(WH):
         return "Enter correct Working minutes!"
     if not Check_Monte_Karlo_NEGR.check_string(Alpha):
         return "Enter correct Alpha!"
-    now = datetime.now()
+    now = datetime.now() #Запись в файл введенных данных
     date_time = now.strftime("%m/%d/%Y, %H:%M:%S")
     f = open(r'text.txt','a')
     f.write('\n' + 'Дата и время работы:' + date_time + '\n')
@@ -32,13 +32,13 @@ def prepare_organiz():  #Метод для добавления нового п�
     f.close()
     return Resurs()
 
-def Resurs():
+def Resurs(): #Метод для составляние массива заявок за отведенное время
     x = 0
-    req = []
+    req = [] #Массив заявок
     WH = int(request.forms.get('WH'))
     Alpha = int(request.forms.get('Alpha'))
     currentrequest = 0
-    while(currentrequest <= WH):
+    while(currentrequest <= WH): #Заполнение массива
         req.append(round(currentrequest,3))
         Ti = -(1/Alpha) * math.log10(random.randint(1,10)/10)
         currentrequest = currentrequest + round(Ti,3)
@@ -46,15 +46,14 @@ def Resurs():
 
 
 
-def Queue(req):
+def Queue(req): #Основной метод: Метод обработки поступивших заявок
     DSR = float(request.forms.get('DSR'))
-    FirstFlow = []
-    SecondFlow = []
-    ThirdFlow = []
-    FourthFlow = []
+    FirstFlow = [] #Массив первой очереди
+    SecondFlow = [] #Массив второй очереди
+    ThirdFlow = [] #Массив третье очереди
+    FourthFlow = [] #Массив четвертой очереди
     i = 0
-    x = 0
-    FSTFRequest = [0,0,0,0]
+    FSTFRequest = [0,0,0,0] #Массив обрабатывающихся заявок
     req1 = req.copy()
     while i < len(req):
         if req[i] >= FSTFRequest[0]:
@@ -91,12 +90,12 @@ def Queue(req):
             continue
         else:
             req[i] = round(req[i],3) + 0.01
-    Result(req1,FirstFlow,SecondFlow,ThirdFlow,FourthFlow)
-    arr = []
+    Result(req1,FirstFlow,SecondFlow,ThirdFlow,FourthFlow) 
+    arr = [] #Массив для вывод результатов работы на страницу
     arr = (req1,FirstFlow,SecondFlow,ThirdFlow,FourthFlow)
     return template('Monte_Karlo_NEGR.html', title='Monte', message='GG',year=datetime.now().year, output=arr)
     
-def Result(req1,FirstFlow,SecondFlow,ThirdFlow,FourthFlow):
+def Result(req1,FirstFlow,SecondFlow,ThirdFlow,FourthFlow): #Метод для записи результатов работы в файл text.txt
     z = 0
     f = open(r'text.txt','a')
     f.write('Результат выполнения программы:' + '\n')
