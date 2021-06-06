@@ -29,9 +29,9 @@ def about():
 @route('/three-chanel_system_with_rejection')
 @view('three-chanel_system_with_rejection')
 def about():
-    """Renders the about page."""
+    """three-chanel_system_with_rejection."""
     return dict(
-        output = "",
+        output = "", # place holder foa an answer 
         title='About',
         year=datetime.now().year
     )
